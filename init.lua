@@ -60,6 +60,17 @@ require('packer').startup(function(use)
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
 
+  -- My own plugins
+
+  -- Debugging
+  -- use 'mfussenegger/nvim-dap'
+  -- use 'rcarriga/nvim-dap-ui'
+  -- use 'theHamsta/nvim-dap-virtual-text'
+  -- use 'nvim-telescope/telescope-dap.nvim'
+
+  -- Java
+  -- use 'mfussenegger/nvim-jdtls'
+
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')
   if has_plugins then
@@ -427,3 +438,23 @@ cmp.setup {
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 
+-- My configs
+
+-- -- Debugging
+-- vim.keymap.set("n", "<F5>", ":lua require'dap'.continue()<CR>")
+-- vim.keymap.set("n", "<F10>", ":lua require'dap'.step_over()<CR>")
+-- vim.keymap.set("n", "<F11>", ":lua require'dap'.step_into()<CR>")
+-- vim.keymap.set("n", "<F12>", ":lua require'dap'.step_out()<CR>")
+-- vim.keymap.set("n", "<leader>b", ":lua require'dap'.toggle_breakpoint()<CR>")
+-- vim.keymap.set("n", "<leader>B", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint confition: '))<CR>")
+-- vim.keymap.set("n", "<leader>lp", ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>")
+-- vim.keymap.set("n", "<leader>dr", ":lua requre'dap'.repl.open()<CR>")
+--
+-- local M = {}
+-- local dap = require('dap')
+-- dap.adapters.java = function(callback, config)
+--   M.execute_command({command = 'vscode.java.startDebugSession'}, function(err0, port)
+--     assert(not err0, vim.inspect(err0))
+--     callback({ type = 'server'; host = '127.0.0.1'; port = port; })
+--   end)
+-- end
