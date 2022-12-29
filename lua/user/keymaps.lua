@@ -23,3 +23,25 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
+
+-- Moving lines
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
+vim.keymap.set("n", "<A-j>", "<S-v> :m '>+1<CR>gv=gv <ESC>")
+vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
+vim.keymap.set("n", "<A-k>", "<S-v> :m '>-2<CR>gv=gv <ESC>")
+
+-- Keep the cursor center when jumping
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-U>zz")
+
+
+local wk_status_ok, wk = pcall(require, "which-key")
+if not wk_status_ok then
+  return
+end
+  
+-- wk.register({
+--   ["<leader>"] = {
+--     e = { "<cmd>vim diagnostic.open_float<cr>", "Open diagnostic information in floating window" },
+--   }, { mode = "n" }
+-- })

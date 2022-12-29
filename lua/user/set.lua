@@ -31,4 +31,9 @@ vim.cmd [[colorscheme onedark]]
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
+-- For browsing
 vim.opt.scrolloff = 8
+
+-- turn off autostarting netrw
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrw = 1

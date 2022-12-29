@@ -61,6 +61,7 @@ require('packer').startup(function(use)
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
 
   -- My own plugins
+  -- Neo tree
   use {
   "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
@@ -69,6 +70,19 @@ require('packer').startup(function(use)
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
     }
+  }
+
+  -- Which key
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      require("which-key").setup {
+        timeoutlen = 500
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
   }
   -- Debugging
   -- use 'mfussenegger/nvim-dap'
