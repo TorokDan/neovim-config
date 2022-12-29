@@ -7,6 +7,20 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.cmd [[packadd packer.nvim]]
 end
 
+-- Have packer use a popup window
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then
+  return
+end
+
+packer.init({
+    display = {
+      open_fn = function()
+        return require('packer.util').float({ border = 'single' })
+      end
+    }
+  }
+)
 require('packer').startup(function(use)
   -- Package manager
   use 'wbthomason/packer.nvim'
@@ -73,17 +87,14 @@ require('packer').startup(function(use)
   }
 
   -- Which key
-  use {
-    "folke/which-key.nvim",
-    config = function()
+  use {"folke/which-key.nvim",
+    config = function ()
       require("which-key").setup {
-        timeoutlen = 500
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
+
       }
     end
   }
+
   -- Debugging
   -- use 'mfussenegger/nvim-dap'
   -- use 'rcarriga/nvim-dap-ui'
@@ -91,7 +102,7 @@ require('packer').startup(function(use)
   -- use 'nvim-telescope/telescope-dap.nvim'
 
   -- Java
-  -- use 'mfussenegger/nvim-jdtls'
+  use 'mfussenegger/nvim-jdtls'
 
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')
