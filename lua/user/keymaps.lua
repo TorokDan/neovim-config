@@ -34,3 +34,5 @@ vim.keymap.set("n", "<A-k>", "<S-v> :m '>-2<CR>gv=gv <ESC>")
 -- Keep the cursor center when jumping
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-U>zz")
+
+-- ToggleTerm settings

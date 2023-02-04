@@ -37,3 +37,9 @@ vim.opt.scrolloff = 8
 -- turn off autostarting netrw
 vim.g.loaded_netrwPluin = 1
 vim.g.loaded_netrw = 1
+
+-- disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPluin = 1
+
+vim.o.shell='/bin/fish'

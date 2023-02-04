@@ -104,6 +104,17 @@ require('packer').startup(function(use)
   -- Java
   use 'mfussenegger/nvim-jdtls'
 
+  -- Terminal in vim
+  -- use 'akinsho/toggleterm.nvim'
+  -- use {
+  --   's1n7ax/nvim-terminal',
+  --   config = function()
+  --       vim.o.hidden = true
+  --       require('nvim-terminal').setup()
+  --   end,
+-- }
+
+
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')
   if has_plugins then
